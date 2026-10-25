@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CricStream — Cricket Scoring & Live Streaming</title>
+  <meta name="description" content="Score cricket matches ball-by-ball and broadcast live to YouTube with television-quality real-time score overlays." />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: #07090F;
+      color: #E8EAF0;
+      line-height: 1.6;
+      padding: 0;
+      margin: 0;
+    }
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 24px;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 32px;
+      border-bottom: 1px solid #1F2937;
+    }
+    .logo {
+      font-size: 26px;
+      font-weight: 900;
+      color: #00E5A0;
+      letter-spacing: -0.5px;
+      text-decoration: none;
+    }
+    .logo span { color: #E8EAF0; }
+    nav a {
+      color: #9CA3AF;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      margin-left: 20px;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: #00E5A0; }
+    .hero {
+      text-align: center;
+      padding: 64px 12px 48px;
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(0, 229, 160, 0.12);
+      color: #00E5A0;
+      border: 1px solid rgba(0, 229, 160, 0.3);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 24px;
+      letter-spacing: 0.5px;
+    }
+    h1 {
+      font-size: 42px;
+      font-weight: 900;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      letter-spacing: -1px;
+    }
+    h1 span {
+      background: linear-gradient(135deg, #00E5A0 0%, #4DA6FF 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .subtitle {
+      font-size: 18px;
+      color: #9CA3AF;
+      max-width: 640px;
+      margin: 0 auto 36px;
+    }
+    .cta-group {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-play {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #00E5A0;
+      color: #07090F;
+      padding: 14px 28px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.15s, opacity 0.15s;
+    }
+    .btn-play:hover {
+      opacity: 0.95;
+      transform: translateY(-1px);
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin: 48px 0;
+    }
+    .card {
+      background: #111827;
+      border: 1px solid #1F2937;
+      border-radius: 14px;
+      padding: 24px;
+    }
+    .card-icon {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+    .card h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: #E8EAF0;
+      margin-bottom: 8px;
+    }
+    .card p {
+      font-size: 14px;
+      color: #9CA3AF;
+      line-height: 1.6;
+    }
+    .info-section {
+      background: #0D111A;
+      border: 1px solid #1F2937;
+      border-radius: 14px;
+      padding: 28px;
+      margin: 36px 0;
+    }
+    .info-section h2 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #00E5A0;
+      margin-bottom: 12px;
+    }
+    .info-section p {
+      font-size: 14px;
+      color: #9CA3AF;
+      margin-bottom: 10px;
+    }
+    footer {
+      border-top: 1px solid #1F2937;
+      padding-top: 32px;
+      margin-top: 64px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 13px;
+      color: #6B7280;
+    }
+    .footer-links a {
+      color: #9CA3AF;
+      text-decoration: none;
+      margin-right: 18px;
+    }
+    .footer-links a:hover { color: #00E5A0; }
+    @media (max-width: 640px) {
+      h1 { font-size: 30px; }
+      .hero { padding: 40px 0 32px; }
+      footer { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a href="/" class="logo">Cric<span>Stream</span></a>
+      <nav>
+        <a href="https://ravisfortune.github.io/cricstream-privacy/">Privacy</a>
+        <a href="https://ravisfortune.github.io/cricstream-privacy/terms.html">Terms</a>
+        <a href="mailto:ravisfortune@gmail.com">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="badge">🏏 Official Play Store Release</div>
+      <h1>Broadcast Cricket Matches with <span>Live Television Overlays</span></h1>
+      <p class="subtitle">
+        The complete cricket scoring and live-streaming companion. Score matches ball-by-ball, manage tournaments, and stream live directly to YouTube with automated professional graphics.
+      </p>
+      <div class="cta-group">
+        <a class="btn-play" href="https://play.google.com/store/apps/details?id=com.ravisfortune.cricstream" target="_blank" rel="noopener">
+          <span>Get it on Google Play</span>
+        </a>
+      </div>
+    </section>
+
+    <div class="features">
+      <div class="card">
+        <div class="card-icon">⚡</div>
+        <h3>Live Ball-by-Ball Scoring</h3>
+        <p>Complete Laws of Cricket support: extras (wides, no-balls, byes, leg-byes), dismissals, partnerships, DLS calculations, and instant undo.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">📹</div>
+        <h3>Direct YouTube Live Streaming</h3>
+        <p>Broadcast high-definition video directly to your YouTube channel using Google Sign-In with automated score overlay tickers updating in real time.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🏆</div>
+        <h3>Tournaments & Fixtures</h3>
+        <p>Organize leagues, knockout brackets, round-robin fixtures, and live points tables with net run-rate tracking.</p>
+      </div>
+    </div>
+
+    <section class="info-section">
+      <h2>YouTube Integration & Data Usage</h2>
+      <p>
+        CricStream allows cricket scorers and club organizers to connect their YouTube account using secure Google OAuth to schedule broadcasts and stream live camera feeds directly to their channel.
+      </p>
+      <p>
+        We only request the permissions required to create and manage your live video broadcast (<code>https://www.googleapis.com/auth/youtube</code>). Your streaming credentials remain securely on your device. We do not sell, share, or use your Google user data for advertising.
+      </p>
+    </section>
+
+    <section class="info-section">
+      <h2>Contact & Support</h2>
+      <p>Developer: <strong>Ravi Kotikala</strong> (ravisfortune)</p>
+      <p>Email: <a href="mailto:ravisfortune@gmail.com" style="color:#00E5A0;">ravisfortune@gmail.com</a></p>
+      <p>Support & Feedback: Available inside the app under <em>Profile &rarr; Help &amp; FAQ</em>.</p>
+    </section>
+
+    <footer>
+      <div>&copy; 2026 CricStream. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="https://ravisfortune.github.io/cricstream-privacy/">Privacy Policy</a>
+        <a href="https://ravisfortune.github.io/cricstream-privacy/terms.html">Terms of Service</a>
+        <a href="/app-ads.txt">app-ads.txt</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
